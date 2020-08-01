@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CircleTest {
 
     @Test
-    public void testRightCharacteristicAfterMove(){
+    public void testRightCharacteristicAfterMove() {
         Point2D centre = new Point2D(0, 0);
         Point2D point = new Point2D(0, 1);
 
@@ -21,9 +21,30 @@ public class CircleTest {
 
         MoveDirection md = new MoveDirection(2.5d, -3.0);
         circle.move(md);
-        assertEquals(2.5 , circle.getCentre().getX());
-        assertEquals(-2 , circle.getPoint().getY());
+        assertEquals(2.5, circle.getCentre().getX());
+        assertEquals(-2, circle.getPoint().getY());
+    }
 
+
+        public void testRightCharacteristicAfterResize(){
+            Point2D centre = new Point2D(0, 0);
+            Point2D point = new Point2D(0, 1);
+
+            Circle circle = new Circle(centre, point);
+            double r = circle.getRadius();
+
+            assertEquals(1.0d, circle.getRadius());
+            assertEquals(2 * Math.PI * r, circle.getParameter());
+            assertEquals(Math.PI * r * r, circle.getArea());
+            System.out.println("r: " + r + "P: " + circle.getParameter() + "a: " + circle.getArea());
+
+
+            circle.resize(3.0d);
+            r = circle.getRadius();
+            assertEquals(3.0d, r);
+            assertEquals(3 * 2 * Math.PI * r, circle.getParameter());
+            assertEquals(9 * Math.PI * r * r, circle.getArea());
+            System.out.println("r: " + r + "P: " + circle.getParameter() + "a: " + circle.getArea());
     }
 
 
