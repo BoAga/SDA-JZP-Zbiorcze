@@ -27,6 +27,11 @@ public class ParcelValidatorTest {
 
     public void validationShouldNotPassWhenParcelVioletsMultipleConditions(){
         Parcel p4 = new Parcel(31, 31, 29, 25.0f, true);
-        
+
+
+        ParcelValidator pv = new ParcelValidator();
+
+        assertEquals(false, pv.validate(p4));
     }
-}
+    }
+
